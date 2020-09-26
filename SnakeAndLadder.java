@@ -7,8 +7,8 @@ public class SnakeAndLadder {
 	public static void main(String[] args) {
 		int position=START_POSITION;
 		System.out.println("Welcome to Snake and Ladder game");
-		
-		while(position<=100) {
+		boolean b= true;
+		while(b) {
 			int dice_value=1+(int) Math.floor(Math.random()*10)%6;
 			System.out.println("Dice value :"+dice_value);
 	
@@ -22,6 +22,16 @@ public class SnakeAndLadder {
 			}
 			else if(check_value== LADDER){
 				position+=dice_value;
+				if(position>100) {
+					position=position-dice_value;
+				}
+				else if(position==100) {
+					b=false;
+				}
+				else{
+					
+				}
+				
 			}
 			else {
 				position-=dice_value;
